@@ -1,4 +1,4 @@
-import {Canvas, Circle, Paint, vec} from '@shopify/react-native-skia';
+import {Canvas, Circle, Group} from '@shopify/react-native-skia';
 import React from 'react';
 import {View} from 'react-native';
 
@@ -6,17 +6,16 @@ const width = 256;
 const height = 256;
 
 function App(): JSX.Element {
-  const strokeWidth = 10;
-  const c = vec(width / 2, height / 2);
-  const r = (width - strokeWidth) / 2;
+  const r = width / 6;
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Canvas style={{width, height}}>
-        <Circle c={c} r={r} color="red">
-          <Paint color="lightblue" />
-          <Paint color="#adbce6" style="stroke" strokeWidth={strokeWidth} />
-          <Paint color="#ade6d8" style="stroke" strokeWidth={strokeWidth / 2} />
-        </Circle>
+        <Group color="lightblue">
+          <Circle cx={r} cy={r} r={r} />
+          <Group style="stroke" strokeWidth={10}>
+            <Circle cx={3 * r} cy={3 * r} r={r} />
+          </Group>
+        </Group>
       </Canvas>
     </View>
   );
