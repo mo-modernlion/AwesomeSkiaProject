@@ -1,25 +1,24 @@
-import {Canvas, Circle, useCanvasRef} from '@shopify/react-native-skia';
-import React, {useEffect} from 'react';
+import {Canvas, Circle, Paint, vec} from '@shopify/react-native-skia';
+import React from 'react';
+import {View} from 'react-native';
+
+const width = 256;
+const height = 256;
 
 function App(): JSX.Element {
-  const ref = useCanvasRef();
-  useEffect(() => {
-    setTimeout(() => {
-      // you can pass an optional rectangle
-      // to only save part of the image
-      const image = ref.current?.makeImageSnapshot();
-      if (image) {
-        // you can use image in an <Image> component
-        // Or save to file using encodeToBytes -> Uint8Array
-        const bytes = image.encodeToBytes();
-        console.log(bytes);
-      }
-    }, 1000);
-  });
+  const strokeWidth = 10;
+  const c = vec(width / 2, height / 2);
+  const r = (width - strokeWidth) / 2;
   return (
-    <Canvas style={{flex: 1}} ref={ref}>
-      <Circle r={128} cx={128} cy={128} color="red" />
-    </Canvas>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Canvas style={{width, height}}>
+        <Circle c={c} r={r} color="red">
+          <Paint color="lightblue" />
+          <Paint color="#adbce6" style="stroke" strokeWidth={strokeWidth} />
+          <Paint color="#ade6d8" style="stroke" strokeWidth={strokeWidth / 2} />
+        </Circle>
+      </Canvas>
+    </View>
   );
 }
 
