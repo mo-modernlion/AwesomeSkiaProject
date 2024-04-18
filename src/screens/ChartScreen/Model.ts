@@ -48,14 +48,15 @@ interface Prices {
 const values = data.data.prices as Prices;
 const POINTS = 20;
 
+//TODO: make own code
 const buildGraph = (
-  datapoints: DataPoints,
+  dataPoints: DataPoints,
   label: string,
   WIDTH: number,
   HEIGHT: number,
 ) => {
-  const AJUSTED_SIZE = HEIGHT - PADDING * 2;
-  const priceList = datapoints.prices.slice(0, POINTS);
+  const ADJUSTED_SIZE = HEIGHT - PADDING * 2;
+  const priceList = dataPoints.prices.slice(0, POINTS);
   const formattedValues = priceList
     .map(price => [parseFloat(price[0]), price[1]] as [number, number])
     .reverse();
@@ -67,7 +68,7 @@ const buildGraph = (
   const maxPrice = Math.max(...prices);
   const points = formattedValues.map(([price, date]) => {
     const x = ((date - minDate) / (maxDate - minDate)) * WIDTH;
-    const y = ((price - minPrice) / (maxPrice - minPrice)) * AJUSTED_SIZE;
+    const y = ((price - minPrice) / (maxPrice - minPrice)) * ADJUSTED_SIZE;
     return {x, y};
   });
   points.push({x: WIDTH + 10, y: points[points.length - 1].y});
@@ -76,7 +77,7 @@ const buildGraph = (
     label,
     minPrice,
     maxPrice,
-    percentChange: datapoints.percent_change,
+    percentChange: dataPoints.percent_change,
     path,
   };
 };
