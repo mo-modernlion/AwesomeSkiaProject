@@ -49,6 +49,9 @@ export const SnapShotViewScreen = () => {
         gap: 20,
       }}>
       <Text style={{color: '#F9F9F9'}}>{'SnapShot을 만들 어떤 element'}</Text>
+      <Text style={{color: '#F9F9F9'}}>
+        {'usage: 공유 or 프로필 사진 설정 등'}
+      </Text>
       <Pressable onPress={onPress}>
         <View
           ref={ref}
@@ -69,9 +72,6 @@ export const SnapShotViewScreen = () => {
         <>
           <Text style={{color: '#F9F9F9'}}>
             {'skia 라이브러리로 만들어진 SnapShot'}
-          </Text>
-          <Text style={{color: '#F9F9F9'}}>
-            {'usage: 공유 or 프로필 사진 설정 등'}
           </Text>
           <Canvas style={{width: 280, height: 280}}>
             <Image image={image} x={0} y={0} width={280} height={280} />
