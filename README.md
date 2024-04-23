@@ -80,11 +80,13 @@ To learn more about React Native, take a look at the following resources:
 
 
 
-
+# Line Chart
 https://github.com/mo-modernlion/AwesomeSkiaProject/assets/117889197/dc619a93-359a-448f-9512-7f902a865443
 
+# Gif
 https://github.com/mo-modernlion/AwesomeSkiaProject/assets/117889197/9b406b64-a43d-4c9a-87c3-65e1142f519b
 
+# Full
 https://github.com/mo-modernlion/AwesomeSkiaProject/assets/117889197/06624895-8155-4c2c-8dd5-daa540b3179b
 
 
